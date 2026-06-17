@@ -1,16 +1,23 @@
 package main
 
 import (
-	"SistemadeChat/gochatservices/routes"
 	"fmt"
+	"log"
 	"net/http"
+
+	"SistemadeChat/gochatservices/routes"
 )
 
 func main() {
 
+	// registrar rutas
 	routes.SetupRoutes()
 
-	fmt.Println("Servidor iniciado en puerto 8080")
+	fmt.Println("Servidor de chat iniciado en http://localhost:8080")
 
-	http.ListenAndServe(":8080", nil)
+	// iniciar servidor
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal("Error iniciando servidor:", err)
+	}
 }

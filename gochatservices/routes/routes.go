@@ -1,12 +1,10 @@
 package routes
 
 import (
+	"SistemadeChat/gochatservices/handlers"
 	"net/http"
-
-	"Sistema-de-Chat/go-chat-service/handlers"
 )
 
 func SetupRoutes() {
-
 	http.HandleFunc("/ws", handlers.HandleWebSocket)
 }
