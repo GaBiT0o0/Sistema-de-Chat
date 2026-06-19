@@ -14,7 +14,7 @@ engine = create_engine(
 )
 
 def create_db_and_tables() -> None:
-    from models import user  # noqa: F401
+    from models import user  
     SQLModel.metadata.create_all(engine)
 
 def get_session():

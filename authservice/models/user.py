@@ -24,7 +24,6 @@ class Message(SQLModel, table=True):
     conversation_id: int = Field(foreign_key="conversations.id", index=True)
     sender_id: int = Field(foreign_key="users.id", index=True)
     receiver_id: int = Field(foreign_key="users.id", index=True)
-    # Se almacena exclusivamente el contenido cifrado (AES-256 CBC en Base64).
     encrypted_message: str
     created_at: datetime = Field(default_factory=datetime.utcnow)
     delivered: bool = Field(default=False)
